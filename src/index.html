@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TypeWriter</title><link rel="stylesheet" href="typewriter://app/app.css"><script type="module" src="typewriter://app/app.js"></script></head>
+<body class="writing">
+<main id="editor-page" class="with-outline" data-mode="wysiwyg">
+<header class="writing-header">
+  <div class="writing-navigation"><strong class="brand">TypeWriter</strong><button data-command="new">新建</button><button data-command="open">打开</button></div>
+  <div class="writing-actions"><select id="writing-mode" aria-label="编辑模式"><option value="wysiwyg">即时编辑</option><option value="markdown">Markdown 源码</option><option value="split">分栏预览</option><option value="preview">阅读预览</option></select><button id="writer-find-toggle">查找</button><button data-command="save" class="primary">保存</button><details id="writing-menu"><summary aria-label="更多操作">···</summary><div class="writing-menu-panel"><button data-command="open-folder">打开文件夹…</button><button data-command="save-as">另存为…</button><button data-command="html">导出 HTML…</button><button data-command="pdf">导出 PDF…</button><hr><button data-command="focus" aria-pressed="false">专注模式</button><button data-command="typewriter" aria-pressed="false">打字机模式</button></div></details></div>
+</header>
+<div class="document-bar"><span id="document-name">未命名.md</span><span id="document-path"></span></div>
+<div id="writer-error" role="alert" hidden></div>
+<div id="writer-find" hidden><input id="find-query" aria-label="查找内容" placeholder="查找"><input id="replace-query" aria-label="替换内容" placeholder="替换为"><span id="find-count"></span><button id="find-prev" aria-label="上一个匹配">↑</button><button id="find-next" aria-label="下一个匹配">↓</button><button id="replace-one">替换</button><button id="replace-all">全部替换</button><button id="find-close" aria-label="关闭查找">×</button></div>
+<div class="writing-layout"><button id="writer-outline-toggle" aria-label="切换侧栏" aria-expanded="true">☰</button><aside id="writer-sidebar" aria-hidden="false">
+<div class="sidebar-tabs"><button id="files-tab" aria-pressed="true">文件</button><button id="outline-tab" aria-pressed="false">大纲</button></div>
+<section id="files-panel"><div class="folder-heading"><button data-command="open-folder" id="folder-name" title="打开文件夹">打开文件夹…</button><button id="files-refresh" aria-label="刷新文件列表" title="刷新">↻</button></div>
+
+<div id="file-tree" aria-label="文件目录" tabindex="0"></div>
+
+</section>
+<nav id="writer-outline" aria-label="文档大纲" hidden></nav></aside><section class="writing-document"><div id="writing-editor"></div><article id="reading-preview" class="prose" tabindex="0" aria-label="Markdown 阅读预览" hidden></article></section></div>
+<div id="writer-block-actions" hidden><span id="writer-block-label"></span><input id="writer-code-language" aria-label="代码语言" placeholder="代码语言"><button id="writer-block-plain">转为普通文本</button><button id="writer-block-exit">在后面继续写</button><button id="writer-block-delete">删除</button></div>
+<div id="writer-inline-hint" hidden>按方向键移出内嵌代码，或再次点击内嵌代码按钮退出。</div>
+<footer class="writing-footer"><span id="writer-status" role="status">就绪</span><span id="writer-count"></span></footer>
+</main>
+<dialog id="file-name-dialog"><form id="file-name-form"><h2 id="file-name-title">新建文件</h2><p id="file-name-location"></p><label for="file-name-input">名称</label><input id="file-name-input" autocomplete="off" required maxlength="180"><p id="file-name-error" role="alert" hidden></p><div><button type="button" id="file-name-cancel">取消</button><button type="submit" class="primary">确定</button></div></form></dialog>
+</body></html>
